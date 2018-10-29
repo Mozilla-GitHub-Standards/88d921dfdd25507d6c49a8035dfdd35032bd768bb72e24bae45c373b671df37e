@@ -1,5 +1,4 @@
 import requests
-import websocket
 from websocket import create_connection
 
 
