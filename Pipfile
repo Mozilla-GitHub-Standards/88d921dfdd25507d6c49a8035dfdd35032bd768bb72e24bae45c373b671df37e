@@ -8,6 +8,7 @@ name = "pypi"
 [packages]
 pytest = "*"
 requests = "*"
+websocket-client = "*"
 
 [requires]
 python_version = "3.6"
