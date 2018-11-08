@@ -1,5 +1,14 @@
+import pytest
 import requests
 from websocket import create_connection
+
+
+def test_retrieve_messages(endpoint, bearer_token):
+    pytest.skip('Need bearer token for reading')
+    url = endpoint + "v1/broadcasts"
+    headers = {"Authorization": "Bearer {}".format(bearer_token)}
+    resp = requests.get(url=url, headers=headers)
+    assert "broadcasts" in resp
 
 
 def test_broadcast_validation(endpoint, bearer_token):
@@ -16,7 +25,7 @@ def test_broadcast_validation(endpoint, bearer_token):
 
 
 def test_sending_messages(ws_endpoint):
-    ws = create_connection(endpoint)
+    ws = create_connection(ws_endpoint)
     ws.send(
         '{"messageType": "hello", "use_webpush": true, "broadcasts": {"test/validation": "v0"}}'
     )
