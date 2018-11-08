@@ -4,7 +4,7 @@ from websocket import create_connection
 
 
 def test_retrieve_messages(endpoint, bearer_token):
-    pytest.skip('Need bearer token for reading')
+    pytest.skip("Need bearer token for reading")
     url = endpoint + "v1/broadcasts"
     headers = {"Authorization": "Bearer {}".format(bearer_token)}
     resp = requests.get(url=url, headers=headers)

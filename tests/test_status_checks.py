@@ -7,7 +7,7 @@ def test_heartbeat(endpoint):
     data = resp.json()
 
     assert resp.status_code == 200
-    assert 'code' in data
+    assert "code" in data
     assert data["database"] == "ok"
     assert data["status"] == "ok"
 
