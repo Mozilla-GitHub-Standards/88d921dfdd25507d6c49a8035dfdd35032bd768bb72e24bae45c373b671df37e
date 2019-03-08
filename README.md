@@ -15,7 +15,7 @@ To run these tests you need to have the following:
 ## Creating Testing Environment
 
 * Copy `.env-dist` to `.env`
-* Verify that the values in `.env` correspond to the target Megaphone deployment you are testing
+* Verify that the values in `.env` correspond to the target Megaphone deployment you are testing. `ENDPOINT` is the Megaphone instance being tested. `WS_ENDPOINT` should belong to an appropriate Autopush endpoint as found in the [autopush docs](https://autopush.readthedocs.io/en/latest/#autopush-endpoints). 
 * Run the command `pipenv install` to create a virtual environment and install the required dependencies
 * Run the command `pipenv shell` to enter the virtual environment (which populates environment variables the tests are expecting)
 
