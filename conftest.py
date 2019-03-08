@@ -14,8 +14,23 @@ def endpoint():
 
 
 @pytest.fixture(scope="module")
-def bearer_token():
-    return os.environ["BEARER_TOKEN"]
+def broadcaster_token():
+    return os.environ["BROADCASTER_TOKEN"]
+
+
+@pytest.fixture(scope="module")
+def reader_token():
+    return os.environ["READER_TOKEN"]
+
+
+@pytest.fixture(scope="module")
+def broadcaster_id():
+    return os.environ["BROADCASTER_ID"]
+
+
+@pytest.fixture(scope="module")
+def reader_id():
+    return os.environ["READER_ID"]
 
 
 @pytest.fixture(scope="module")
