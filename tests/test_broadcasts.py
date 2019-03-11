@@ -3,20 +3,20 @@ import requests
 from websocket import create_connection
 
 
-def test_retrieve_messages(endpoint, bearer_token):
-    pytest.skip("Need bearer token for reading")
+def test_retrieve_messages(endpoint, reader_token):
     url = endpoint + "v1/broadcasts"
-    headers = {"Authorization": "Bearer {}".format(bearer_token)}
+    headers = {"Authorization": "Bearer {}".format(reader_token)}
     resp = requests.get(url=url, headers=headers)
-    assert "broadcasts" in resp
+    assert "broadcasts" in resp.text
 
 
-def test_broadcast_validation(endpoint, bearer_token):
-    url = endpoint + "v1/broadcasts/test/validation"
-    headers = {"Authorization": "Bearer {}".format(bearer_token)}
+def test_broadcast_validation(endpoint, broadcaster_token, broadcaster_id):
+    url = endpoint + "v1/broadcasts/" + broadcaster_id + "/validation"
+    headers = {"Authorization": "Bearer {}".format(broadcaster_token)}
     resp = requests.put(url=url, data="2018-10-16_01", headers=headers)
 
     """
+
     We're expecting one of two values:
     200 - Validated an existing broadcast
     201 - Created a new broadcast
